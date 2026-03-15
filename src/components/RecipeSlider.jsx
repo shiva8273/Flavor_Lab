@@ -1,14 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { useFetch } from "./useFetch";
 import RecipeCard from "./RecipeCard";
 
 import { Clock, Loader } from "lucide-react";
 
+import "./RecipeSlider.css";
+
 const RecipeSlider = ({ title, fetchUrl }) => {
-  const { data, loading, error } = useFetch(fetchUrl);
-  console.log("my meal data = ", data?.meals);
+  const { data, loading } = useFetch(fetchUrl);
   const meals = data?.meals || [];
 
   const settings = {
@@ -24,30 +27,31 @@ const RecipeSlider = ({ title, fetchUrl }) => {
 
   if (loading)
     return (
-      <div className="text-center p-8 text-gray-300">
-        <Loader className="animate-spin inline-block mr-2 text-blue-400" />
+      <div className="slider-loading">
+        <Loader className="loader-icon" />
         Loading {title}...
       </div>
     );
-  return (
-    <>
-      <section className="mt-2 mx-auto">
-        <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight border-1-4 border-yellow-400 pl-4 flex items-center">
-          <Clock className="w-6 h-6 mr-3 text-blue-500" />
-          {title}
-        </h2>
 
-        <div style={{ width: "90%", margin: "auto", padding: "10px" }}>
-          <Slider {...settings}>
-            {meals.map((meal) => (
-              <div key={meal.idMeal} className="px-10 flex justify-center">
-                <RecipeCard meal={meal} />
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </section>
-    </>
+  return (
+    <section className="recipe-slider-section">
+
+      <h2 className="recipe-slider-title">
+        <Clock className="slider-icon" />
+        {title}
+      </h2>
+
+      <div className="slider-container">
+        <Slider {...settings}>
+          {meals.map((meal) => (
+            <div key={meal.idMeal} className="slider-item">
+              <RecipeCard meal={meal} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+    </section>
   );
 };
 

@@ -1,0 +1,21 @@
+.home-main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+}
+
+/* small screens */
+@media (min-width: 640px) {
+  .home-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* large screens */
+@media (min-width: 1024px) {
+  .home-main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,48 @@
+/* loading state */
+.slider-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #d1d5db;
+}
+
+/* section */
+.recipe-slider-section {
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* title */
+.recipe-slider-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #f3f4f6;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid #facc15;
+  letter-spacing: -0.02em;
+}
+
+/* icon */
+.slider-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: #3b82f6;
+}
+
+/* slider wrapper */
+.slider-container {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}
+
+/* slide item */
+.slider-item {
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+}

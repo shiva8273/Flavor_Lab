@@ -35,7 +35,7 @@ const App = () => {
     (category) => {
       filterRecipe(category, "c");
     },
-    [filterRecipe]
+    [filterRecipe],
   );
 
   // filter by area
@@ -43,7 +43,7 @@ const App = () => {
     (area) => {
       filterRecipe(area, "a");
     },
-    [filterRecipe]
+    [filterRecipe],
   );
 
   const handleSearch = useCallback(async (query) => {
@@ -66,11 +66,21 @@ const App = () => {
   return (
     <>
       <Router>
-        <div className="min-h-screen bg-gray-950 font-sans text-gray-100">
+        <div
+          style={{
+            minHeight: "100vh",
+            backgroundColor: "#030712",
+            fontFamily: "sans-serif",
+            color: "#f3f4f6",
+          }}
+        >
           <Navbar handleSearch={handleSearch} />
           <CuisineBar filterByArea={filterByArea} />
           <Routes>
-            <Route path="/" element={<HomeView filterByCategory={filterByCategory} />} />
+            <Route
+              path="/"
+              element={<HomeView filterByCategory={filterByCategory} />}
+            />
             <Route path="/recipe/:id" element={<RecipeDetailView />} />
             <Route
               path="/search/:query"
